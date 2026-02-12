@@ -28,3 +28,14 @@ vim.keymap.set("n", "sS", "<cmd>Telescope lsp_workspace_symbols<cr>", { desc = "
 vim.keymap.set({ "n", "i" }, "<C-f>", function()
   vim.lsp.buf.format()
 end, { desc = "Format File" })
+
+-- g-commands (LSP navigation)
+vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "Find References" })
+vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Go to Declaration" })
+vim.keymap.set("n", "gy", vim.lsp.buf.type_definition, { desc = "Go to Type Definition" })
+vim.keymap.set("n", "gI", vim.lsp.buf.implementation, { desc = "Go to Implementation" })
+vim.keymap.set("n", "gh", vim.lsp.buf.hover, { desc = "Hover Documentation" })
+
+-- Search navigation (for consistency with Zed)
+vim.keymap.set("n", "gn", "n", { desc = "Next Search Match" })
+vim.keymap.set("n", "gN", "N", { desc = "Previous Search Match" })
