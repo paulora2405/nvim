@@ -2,7 +2,7 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
--- Window navigation with Ctrl+h/l (no tmux conflicts)
+-- Window navigation with Ctrl+h/l (could cause conflicts if used with tmux)
 vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Go to Left Window" })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Go to Right Window" })
 
@@ -47,3 +47,8 @@ vim.keymap.set("n", "gh", vim.lsp.buf.hover, { desc = "Hover Documentation" })
 -- Search navigation (for consistency with Zed)
 vim.keymap.set("n", "gn", "n", { desc = "Next Search Match" })
 vim.keymap.set("n", "gN", "N", { desc = "Previous Search Match" })
+
+-- Floating terminal
+vim.keymap.set("n", "<C-/>", function()
+  Snacks.terminal("/bin/zsh", {})
+end)
