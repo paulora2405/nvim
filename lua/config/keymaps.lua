@@ -11,18 +11,26 @@ vim.keymap.set("n", "<C-j>", "<C-d>", { desc = "Scroll Half Page Down" })
 vim.keymap.set("n", "<C-k>", "<C-u>", { desc = "Scroll Half Page Up" })
 
 -- File finder
-vim.keymap.set("n", "<leader><Space>", function() Snacks.picker.files() end, { desc = "Find Files" })
+vim.keymap.set("n", "<leader><Space>", function()
+  Snacks.picker.files()
+end, { desc = "Find Files" })
 
 -- Search (live grep)
-vim.keymap.set("n", "<leader>s", function() Snacks.picker.grep() end, { desc = "Search (Live Grep)" })
+vim.keymap.set("n", "<leader>s", function()
+  Snacks.picker.grep()
+end, { desc = "Search (Live Grep)" })
 
 -- LSP actions (mapped to match Zed)
 vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action, { desc = "Code Action" })
 vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename" })
 
 -- Symbol search (using snacks picker + LSP)
-vim.keymap.set("n", "ss", function() Snacks.picker.lsp_symbols() end, { desc = "Document Symbols" })
-vim.keymap.set("n", "sS", function() Snacks.picker.lsp_workspace_symbols() end, { desc = "Workspace Symbols" })
+vim.keymap.set("n", "ss", function()
+  Snacks.picker.lsp_symbols()
+end, { desc = "Document Symbols" })
+vim.keymap.set("n", "sS", function()
+  Snacks.picker.lsp_workspace_symbols()
+end, { desc = "Workspace Symbols" })
 
 -- Format file
 vim.keymap.set({ "n", "i" }, "<C-f>", function()
