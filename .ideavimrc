@@ -1,0 +1,53 @@
+""" Map leader to space ---------------------
+let mapleader=" "
+""" Plugins  --------------------------------
+set surround
+set multiple-cursors
+set commentary
+set argtextobj
+set easymotion
+set textobj-entire
+set ReplaceWithRegister
+set highlightedyank
+set which-key
+""" Plugin settings -------------------------
+let g:argtextobj_pairs="[:],(:),<:>"
+set notimeout
+set timeoutlen=5000
+""" Common settings -------------------------
+set showmode
+set scrolloff=10
+set incsearch
+set relativenumber
+set nu
+set clipboard+=unnamedplus
+""" Idea specific settings ------------------
+set ideajoin
+" set ideastatusicon=gray
+set idearefactormode=keep
+""" --- Navigation ---
+" Window navigation with Ctrl+h/l (between editor splits)
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+" Editor Scrolling with Ctrl+j/k
+nnoremap <C-j> <C-d>
+nnoremap <C-k> <C-u>
+" Tab/buffer navigation with Shift+h/l (between open tabs)
+map <S-h> <Action>(PreviousTab)
+map <S-j> <Action>(PreviousTab)
+map <S-k> <Action>(NextTab)
+map <S-l> <Action>(NextTab)
+""" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+" g-commands (LSP navigation)
+map gd <Action>(GotoDeclaration)
+map gr <Action>(FindUsages)
+map gy <Action>(GotoTypeDeclaration)
+map gI <Action>(GotoImplementation)
+map gh <Action>(ShowHoverInfo)
+""" --- Misc ---
+map <leader>cr <Action>(RenameElement)
+map <C-f> <Action>(ReformatCode)
+map <leader><space> <Action>(GotoFile)
+map gl <Action>(SelectNextOccurrence)
+map ga <Action>(SelectAllOccurrences)
+map <leader>ct <Action>(ToggleRenderedDocPresentationForAll)
