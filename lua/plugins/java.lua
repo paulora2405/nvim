@@ -1,32 +1,33 @@
-return {
-  {
-    "mfussenegger/nvim-jdtls",
-    opts = function(_, opts)
-      -- 1. Setup paths for the workspace storage
-      local home = os.getenv("HOME")
-      -- This creates a unique path for every project in ~/.cache/jdtls/
-      local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
-      local workspace_dir = home .. "/.cache/jdtls/" .. project_name
-
-      -- 2. Inject the -data flag into the command
-      -- LazyVim's default opts.full_cmd handles the base command construction
-      local old_full_cmd = opts.full_cmd
-      opts.full_cmd = function(new_opts)
-        local cmd = old_full_cmd(new_opts)
-        -- Add the workspace data directory to the end of the command
-        vim.list_extend(cmd, { "-data", workspace_dir })
-        return cmd
-      end
-
-      -- 3. (Optional) Prevent JDTLS from writing files to root if they don't exist
-      opts.settings = vim.tbl_deep_extend("force", opts.settings or {}, {
-        java = {
-          import = {
-            -- Set to true if you WANT them, false to try and keep it external
-            generatesMetadataFilesAtProjectRoot = false,
-          },
-        },
-      })
-    end,
-  },
-}
+return {}
+-- return {
+--   {
+--     "mfussenegger/nvim-jdtls",
+--     opts = function(_, opts)
+--       -- 1. Setup paths for the workspace storage
+--       local home = os.getenv("HOME")
+--       -- This creates a unique path for every project in ~/.cache/jdtls/
+--       local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
+--       local workspace_dir = home .. "/.cache/jdtls/" .. project_name
+--
+--       -- 2. Inject the -data flag into the command
+--       -- LazyVim's default opts.full_cmd handles the base command construction
+--       local old_full_cmd = opts.full_cmd
+--       opts.full_cmd = function(new_opts)
+--         local cmd = old_full_cmd(new_opts)
+--         -- Add the workspace data directory to the end of the command
+--         vim.list_extend(cmd, { "-data", workspace_dir })
+--         return cmd
+--       end
+--
+--       -- 3. (Optional) Prevent JDTLS from writing files to root if they don't exist
+--       opts.settings = vim.tbl_deep_extend("force", opts.settings or {}, {
+--         java = {
+--           import = {
+--             -- Set to true if you WANT them, false to try and keep it external
+--             generatesMetadataFilesAtProjectRoot = false,
+--           },
+--         },
+--       })
+--     end,
+--   },
+-- }
