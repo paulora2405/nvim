@@ -5,7 +5,7 @@ set surround
 set multiple-cursors
 set commentary
 set argtextobj
-set easymotion
+" set easymotion """ this is shit, don't use it
 set textobj-entire
 set ReplaceWithRegister
 set highlightedyank
@@ -46,6 +46,10 @@ map gI <Action>(GotoImplementation)
 map gh <Action>(ShowHoverInfo)
 """ --- Misc ---
 map <leader>cr <Action>(RenameElement)
+map <leader>ti <Action>(ToggleInlayHintsGloballyAction)
+map <leader>ar <Action>(Refactorings.QuickListPopupAction)
+map <leader>ag <Action>(Generate)
+map <leader>ab <Action>(ToggleLineBreakpoint)
 map <C-f> <Action>(ReformatCode)
 map <leader><space> <Action>(GotoFile)
 map gl <Action>(SelectNextOccurrence)
